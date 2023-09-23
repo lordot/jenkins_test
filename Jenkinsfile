@@ -11,6 +11,7 @@ pipeline {
             steps {
                 script {
                     echo 'deploying kubernetes pods...'
+                    sh 'whoami'
                     sh 'kubectl get nodes'
                     sh 'kubectl create deployment nginx-deployment --image=nginx'
                     }
