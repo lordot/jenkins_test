@@ -11,6 +11,7 @@ pipeline {
             steps {
                 script {
                     echo 'deploying kubernetes pods...'
+                    withKubeConfig([credentialsId: 'lke-configdfile', serverUrl: 'https://06689cbd-962c-42c5-bb54-8bef03b752ae.eu-central-1.linodelke.net'])
                     sh 'whoami'
                     sh 'kubectl get nodes'
                     sh 'kubectl create deployment nginx-deployment --image=nginx'
